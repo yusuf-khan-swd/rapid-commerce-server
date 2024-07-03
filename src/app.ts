@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 // Application route
-app.use('/api/v1/student', ProductRoutes);
+app.use('/api/v1/product', ProductRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
