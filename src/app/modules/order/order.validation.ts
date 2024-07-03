@@ -1,36 +1,20 @@
 import { z } from 'zod';
 
-const variantSchema = z.object({
-  type: z.string(),
-  value: z.string(),
+const createOrderValidationSchema = z.object({
+  email: z.string().email(),
+  productId: z.string(),
+  price: z.number().min(0),
+  quantity: z.number().min(1),
 });
 
-const inventorySchema = z.object({
-  quantity: z.number(),
-  inStock: z.boolean(),
-});
-
-const createProductValidationSchema = z.object({
-  name: z.string(),
-  description: z.string(),
-  price: z.number(),
-  category: z.string(),
-  tags: z.array(z.string()),
-  variants: z.array(variantSchema),
-  inventory: inventorySchema,
-});
-
-const updateProductValidationSchema = z.object({
-  name: z.string().optional(),
-  description: z.string().optional(),
-  price: z.number().optional(),
-  category: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-  variants: z.array(variantSchema).optional(),
-  inventory: inventorySchema.optional(),
+const updateOrderValidationSchema = z.object({
+  email: z.string().email().optional(),
+  productId: z.string().optional(),
+  price: z.number().min(0).optional(),
+  quantity: z.number().min(1).optional(),
 });
 
 export const OrderValidation = {
-  createProductValidationSchema,
-  updateProductValidationSchema,
+  createOrderValidationSchema,
+  updateOrderValidationSchema,
 };
