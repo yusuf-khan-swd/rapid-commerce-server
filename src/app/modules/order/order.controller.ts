@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { OrderService } from './order.service';
 import { OrderValidation } from './order.validation';
 
-const createProduct = async (req: Request, res: Response) => {
+const createOrder = async (req: Request, res: Response) => {
   try {
     const productData = req.body;
     const zodParseData =
@@ -24,7 +24,7 @@ const createProduct = async (req: Request, res: Response) => {
   }
 };
 
-const getAllProductFromDB = async (req: Request, res: Response) => {
+const getAllOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { searchTerm } = req.query;
     const result = await OrderService.getAllProductFromDB(searchTerm);
@@ -43,7 +43,7 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
   }
 };
 
-const getSingleProductFromDB = async (req: Request, res: Response) => {
+const getSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const result = await OrderService.getSingleProductFromDB(productId);
@@ -62,7 +62,7 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
   }
 };
 
-const deleteSingleProductFromDB = async (req: Request, res: Response) => {
+const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     await OrderService.deleteSingleProductFromDB(productId);
@@ -81,7 +81,7 @@ const deleteSingleProductFromDB = async (req: Request, res: Response) => {
   }
 };
 
-const updateProduct = async (req: Request, res: Response) => {
+const updateOrder = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const productData = req.body;
@@ -105,9 +105,9 @@ const updateProduct = async (req: Request, res: Response) => {
 };
 
 export const OrderController = {
-  createProduct,
-  getAllProductFromDB,
-  getSingleProductFromDB,
-  updateProduct,
-  deleteSingleProductFromDB,
+  createOrder,
+  getAllOrderFromDB,
+  getSingleOrderFromDB,
+  updateOrder,
+  deleteSingleOrderFromDB,
 };
