@@ -31,7 +31,7 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'All Products fetched successfully!',
+      message: 'Products fetched successfully!',
       data: result,
     });
   } catch (error: any) {
