@@ -56,7 +56,7 @@ const localGuardianSchema = new Schema<TLocalGuardian>({
 
 // const studentSchema = new Schema<TStudent, StudentModel, IStudentMethods>({ // * This line for custom instance method with mongoose
 
-const studentSchema = new Schema<TStudent>(
+const productSchema = new Schema<TStudent>(
   {
     id: {
       type: String,
@@ -127,4 +127,4 @@ const studentSchema = new Schema<TStudent>(
   },
 );
 
-export const Product = model<TStudent>('Product', studentSchema);
+export const Product = model<TStudent>('Product', productSchema);
