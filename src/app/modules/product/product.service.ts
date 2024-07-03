@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { TStudent } from './product.interface';
 import { Student } from './product.model';
 
@@ -27,11 +28,13 @@ const getAllProductFromDB = async () => {
 };
 
 const getSingleProductFromDB = async (id: string) => {
-  // const result = await Student.findOne({ id });
-
   console.log(id);
 
-  const result = await Student.aggregate([{ $match: { _id: id } }]);
+  // const result = await Student.find({ _id: id });
+
+  const result = await Student.aggregate([
+    { $match: { _id: new mongoose.Types.ObjectId(id) } },
+  ]);
   return result;
 };
 
