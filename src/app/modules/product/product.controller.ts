@@ -63,12 +63,12 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
 const deleteSingleProductFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    const result = await ProductService.deleteSingleProductFromDB(productId);
+    await ProductService.deleteSingleProductFromDB(productId);
 
     res.status(200).json({
       success: true,
       message: 'Product deleted successfully!',
-      data: result,
+      data: null,
     });
   } catch (error: any) {
     res.status(500).json({
