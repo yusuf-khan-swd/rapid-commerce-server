@@ -6,7 +6,11 @@ const createProduct = async (data: TProduct) => {
   return result;
 };
 
-const getAllProductFromDB = async () => {
+const getAllProductFromDB = async (searchTerm: any) => {
+  if (searchTerm) {
+    return await Product.find({ name: searchTerm });
+  }
+
   const result = await Product.find();
   return result;
 };
