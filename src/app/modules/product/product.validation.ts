@@ -20,4 +20,4 @@ const productValidationSchema = z.object({
   inventory: inventorySchema,
 });
 
-export default productValidationSchema;
+export const ProductValidation = { productValidationSchema };
