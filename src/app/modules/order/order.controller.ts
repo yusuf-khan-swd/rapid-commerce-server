@@ -8,7 +8,7 @@ const createOrder = async (req: Request, res: Response) => {
     const zodParseData =
       OrderValidation.createProductValidationSchema.parse(productData);
 
-    const result = await OrderService.createProduct(zodParseData);
+    const result = await OrderService.createOrder(zodParseData);
 
     res.status(200).json({
       success: true,
@@ -27,7 +27,7 @@ const createOrder = async (req: Request, res: Response) => {
 const getAllOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { searchTerm } = req.query;
-    const result = await OrderService.getAllProductFromDB(searchTerm);
+    const result = await OrderService.getAllOrderFromDB(searchTerm);
 
     res.status(200).json({
       success: true,
@@ -46,7 +46,7 @@ const getAllOrderFromDB = async (req: Request, res: Response) => {
 const getSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    const result = await OrderService.getSingleProductFromDB(productId);
+    const result = await OrderService.getSingleOrderFromDB(productId);
 
     res.status(200).json({
       success: true,
@@ -65,7 +65,7 @@ const getSingleOrderFromDB = async (req: Request, res: Response) => {
 const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    await OrderService.deleteSingleProductFromDB(productId);
+    await OrderService.deleteSingleOrderFromDB(productId);
 
     res.status(200).json({
       success: true,
@@ -88,7 +88,7 @@ const updateOrder = async (req: Request, res: Response) => {
 
     OrderValidation.updateProductValidationSchema.parse(productData);
 
-    const result = await OrderService.updateProduct(productId, productData);
+    const result = await OrderService.updateOrder(productId, productData);
 
     res.status(200).json({
       success: true,
