@@ -28,12 +28,19 @@ const getAllOrderFromDB = async (req: Request, res: Response) => {
   try {
     const { email } = req.query;
     const result = await OrderService.getAllOrderFromDB(email);
-
-    res.status(200).json({
-      success: true,
-      message: 'All Orders fetched successfully!',
-      data: result,
-    });
+    if (email) {
+      res.status(200).json({
+        success: true,
+        message: 'Orders fetched successfully for user email!',
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: 'Orders fetched successfully!',
+        data: result,
+      });
+    }
   } catch (error: any) {
     res.status(500).json({
       success: false,
