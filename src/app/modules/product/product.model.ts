@@ -54,8 +54,6 @@ const localGuardianSchema = new Schema<TLocalGuardian>({
   address: { type: String, required: [true, 'address is required'] },
 });
 
-// const studentSchema = new Schema<TStudent, StudentModel, IStudentMethods>({ // * This line for custom instance method with mongoose
-
 const productSchema = new Schema<TStudent>(
   {
     id: {
