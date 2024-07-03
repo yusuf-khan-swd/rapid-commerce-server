@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { StudentRoutes } from './app/modules/student/student.route';
 
 const app = express();
@@ -13,6 +13,21 @@ app.use('/api/v1/student', StudentRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
+});
+
+//handle not found route
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).json({
+    success: false,
+    message: 'Not Found',
+    errorMessages: [
+      {
+        path: req.originalUrl,
+        message: 'API Not Found',
+      },
+    ],
+  });
+  next();
 });
 
 export default app;
