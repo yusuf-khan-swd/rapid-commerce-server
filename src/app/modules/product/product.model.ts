@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 import {
   TGuardian,
   TLocalGuardian,
-  TStudent,
+  TProduct,
   TUserName,
 } from './product.interface';
 
@@ -54,7 +54,7 @@ const localGuardianSchema = new Schema<TLocalGuardian>({
   address: { type: String, required: [true, 'address is required'] },
 });
 
-const productSchema = new Schema<TStudent>(
+const productSchema = new Schema<TProduct>(
   {
     id: {
       type: String,
@@ -125,4 +125,4 @@ const productSchema = new Schema<TStudent>(
   },
 );
 
-export const Product = model<TStudent>('Product', productSchema);
+export const Product = model<TProduct>('Product', productSchema);
