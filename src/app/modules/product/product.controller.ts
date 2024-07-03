@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { StudentService } from './student.service';
-import studentValidationSchema from './student.validation';
+import { StudentService } from './product.service';
+import studentValidationSchema from './product.validation';
 const createStudent = async (req: Request, res: Response) => {
   try {
     const { student: studentData } = req.body;
