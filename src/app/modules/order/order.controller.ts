@@ -4,15 +4,15 @@ import { OrderValidation } from './order.validation';
 
 const createOrder = async (req: Request, res: Response) => {
   try {
-    const productData = req.body;
+    const orderData = req.body;
     const zodParseData =
-      OrderValidation.createOrderValidationSchema.parse(productData);
+      OrderValidation.createOrderValidationSchema.parse(orderData);
 
     const result = await OrderService.createOrder(zodParseData);
 
     res.status(200).json({
       success: true,
-      message: 'Product Create Success',
+      message: 'Order Create Success',
       data: result,
     });
   } catch (error: any) {
@@ -31,7 +31,7 @@ const getAllOrderFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'All Products fetched successfully!',
+      message: 'All Orders fetched successfully!',
       data: result,
     });
   } catch (error: any) {
@@ -50,7 +50,7 @@ const getSingleOrderFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Product fetched successfully!',
+      message: 'Order fetched successfully!',
       data: result,
     });
   } catch (error: any) {
@@ -69,7 +69,7 @@ const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Product deleted successfully!',
+      message: 'Order deleted successfully!',
       data: null,
     });
   } catch (error: any) {
@@ -84,15 +84,15 @@ const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
 const updateOrder = async (req: Request, res: Response) => {
   try {
     const { orderId } = req.params;
-    const productData = req.body;
+    const orderData = req.body;
 
-    OrderValidation.updateOrderValidationSchema.parse(productData);
+    OrderValidation.updateOrderValidationSchema.parse(orderData);
 
-    const result = await OrderService.updateOrder(orderId, productData);
+    const result = await OrderService.updateOrder(orderId, orderData);
 
     res.status(200).json({
       success: true,
-      message: 'Update single Product Success',
+      message: 'Update single Order Success',
       data: result,
     });
   } catch (error: any) {
