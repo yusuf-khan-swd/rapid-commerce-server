@@ -29,7 +29,7 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Get All Product Success',
+      message: 'All Products fetched successfully!',
       data: result,
     });
   } catch (error: any) {
@@ -48,7 +48,7 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Get single Product Success',
+      message: 'Product deleted successfully!',
       data: result,
     });
   } catch (error: any) {
