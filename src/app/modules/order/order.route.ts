@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.post('/', OrderController.createOrder);
 router.get('/', OrderController.getAllOrderFromDB);
-router.get('/:productId', OrderController.getSingleOrderFromDB);
-router.put('/:productId', OrderController.updateOrder);
-router.delete('/:productId', OrderController.deleteSingleOrderFromDB);
+router.get('/:orderId', OrderController.getSingleOrderFromDB);
+router.put('/:orderId', OrderController.updateOrder);
+router.delete('/:orderId', OrderController.deleteSingleOrderFromDB);
 
 export const OrderRoutes = router;

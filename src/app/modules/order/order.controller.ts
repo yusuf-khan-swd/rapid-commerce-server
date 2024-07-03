@@ -45,8 +45,8 @@ const getAllOrderFromDB = async (req: Request, res: Response) => {
 
 const getSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
-    const { productId } = req.params;
-    const result = await OrderService.getSingleOrderFromDB(productId);
+    const { orderId } = req.params;
+    const result = await OrderService.getSingleOrderFromDB(orderId);
 
     res.status(200).json({
       success: true,
@@ -64,8 +64,8 @@ const getSingleOrderFromDB = async (req: Request, res: Response) => {
 
 const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
   try {
-    const { productId } = req.params;
-    await OrderService.deleteSingleOrderFromDB(productId);
+    const { orderId } = req.params;
+    await OrderService.deleteSingleOrderFromDB(orderId);
 
     res.status(200).json({
       success: true,
@@ -83,12 +83,12 @@ const deleteSingleOrderFromDB = async (req: Request, res: Response) => {
 
 const updateOrder = async (req: Request, res: Response) => {
   try {
-    const { productId } = req.params;
+    const { orderId } = req.params;
     const productData = req.body;
 
     OrderValidation.updateOrderValidationSchema.parse(productData);
 
-    const result = await OrderService.updateOrder(productId, productData);
+    const result = await OrderService.updateOrder(orderId, productData);
 
     res.status(200).json({
       success: true,
