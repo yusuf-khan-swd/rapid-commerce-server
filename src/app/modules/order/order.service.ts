@@ -6,9 +6,9 @@ const createOrder = async (data: TOrder) => {
   return result;
 };
 
-const getAllOrderFromDB = async (searchTerm: any) => {
-  if (searchTerm) {
-    return await Order.find({ name: { $regex: searchTerm, $options: 'i' } });
+const getAllOrderFromDB = async (email: any) => {
+  if (email) {
+    return await Order.find({ email: email });
   }
 
   const result = await Order.find();
