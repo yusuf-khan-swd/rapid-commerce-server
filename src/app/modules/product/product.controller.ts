@@ -67,7 +67,7 @@ const deleteSingleProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Delete single Product Success',
+      message: 'Product deleted successfully!',
       data: result,
     });
   } catch (error: any) {
