@@ -1,33 +1,33 @@
 import { TProduct } from './order.interface';
-import { Product } from './order.model';
+import { Order } from './order.model';
 
 const createOrder = async (data: TProduct) => {
-  const result = await Product.create(data);
+  const result = await Order.create(data);
   return result;
 };
 
 const getAllOrderFromDB = async (searchTerm: any) => {
   if (searchTerm) {
-    return await Product.find({ name: { $regex: searchTerm, $options: 'i' } });
+    return await Order.find({ name: { $regex: searchTerm, $options: 'i' } });
   }
 
-  const result = await Product.find();
+  const result = await Order.find();
   return result;
 };
 
 const getSingleOrderFromDB = async (id: string) => {
-  const result = await Product.findById({ _id: id });
+  const result = await Order.findById({ _id: id });
 
   return result;
 };
 
 const updateOrder = async (id: string, data: TProduct) => {
-  const result = await Product.findByIdAndUpdate(id, data, { new: true });
+  const result = await Order.findByIdAndUpdate(id, data, { new: true });
   return result;
 };
 
 const deleteSingleOrderFromDB = async (id: string) => {
-  const result = await Product.findByIdAndDelete(id);
+  const result = await Order.findByIdAndDelete(id);
   return result;
 };
 
