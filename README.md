@@ -3,6 +3,13 @@
 **1. [Github Server Side Repository](https://github.com/yusuf-khan-swd/renovator-backend)** \
 **2. [Live Server](https://rapidcommerce.vercel.app)**
 
+## How to Setup project locally
+
+1. First step, Clone the project
+2. Second step, install all the packages using `npm i`
+3. Third step, Add environment variable according to config file in to your `.env` file
+4. Fourth and final step run your code by using `npm run dev`
+
 ### Application Routes:
 
 ### Category
