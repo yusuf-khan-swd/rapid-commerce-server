@@ -1,5 +1,3 @@
-import { Model } from 'mongoose';
-
 export type TUserName = {
   firstName: string;
   middleName?: string;
@@ -42,20 +40,3 @@ export type TStudent = {
   isActive: 'active' | 'blocked';
   isDeleted: boolean;
 };
-
-export interface StudentModel extends Model<TStudent> {
-  // eslint-disable-next-line no-unused-vars
-  isUserExist(id: string): Promise<TStudent | null>;
-}
-
-// * Custom instance method with mongoose
-// export interface IStudentMethods {
-//   // eslint-disable-next-line no-unused-vars
-//   isUserExist(id: string): Promise<TStudent | null>;
-// }
-
-// export type StudentModel = Model<
-//   TStudent,
-//   Record<string, never>,
-//   IStudentMethods
-// >;

@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 import {
-  StudentModel,
   TGuardian,
   TLocalGuardian,
   TStudent,
@@ -57,7 +56,7 @@ const localGuardianSchema = new Schema<TLocalGuardian>({
 
 // const studentSchema = new Schema<TStudent, StudentModel, IStudentMethods>({ // * This line for custom instance method with mongoose
 
-const studentSchema = new Schema<TStudent, StudentModel>(
+const studentSchema = new Schema<TStudent>(
   {
     id: {
       type: String,
@@ -128,4 +127,4 @@ const studentSchema = new Schema<TStudent, StudentModel>(
   },
 );
 
-export const Student = model<TStudent, StudentModel>('Student', studentSchema);
+export const Student = model<TStudent>('Student', studentSchema);
