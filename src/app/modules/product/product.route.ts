@@ -1,11 +1,11 @@
 import express from 'express';
-import { StudentController } from './product.controller';
+import { ProductController } from './product.controller';
 
 const router = express.Router();
 
-router.post('/create-student', StudentController.createStudent);
-router.get('/', StudentController.getAllStudentFromDB);
-router.get('/:studentId', StudentController.getSingleStudentFromDB);
-router.delete('/:studentId', StudentController.deleteSingleStudentFromDB);
+router.post('/create-student', ProductController.createStudent);
+router.get('/', ProductController.getAllStudentFromDB);
+router.get('/:studentId', ProductController.getSingleStudentFromDB);
+router.delete('/:studentId', ProductController.deleteSingleStudentFromDB);
 
-export const StudentRoutes = router;
+export const ProductRoutes = router;

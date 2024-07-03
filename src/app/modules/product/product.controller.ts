@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { StudentService } from './product.service';
+import { ProductService } from './product.service';
 import studentValidationSchema from './product.validation';
 const createStudent = async (req: Request, res: Response) => {
   try {
     const { student: studentData } = req.body;
     const zodParseData = studentValidationSchema.parse(studentData);
 
-    const result = await StudentService.createStudent(zodParseData);
+    const result = await ProductService.createStudent(zodParseData);
 
     res.status(200).json({
       success: true,
@@ -24,7 +24,7 @@ const createStudent = async (req: Request, res: Response) => {
 
 const getAllStudentFromDB = async (req: Request, res: Response) => {
   try {
-    const result = await StudentService.getAllStudentFromDB();
+    const result = await ProductService.getAllStudentFromDB();
 
     res.status(200).json({
       success: true,
@@ -43,7 +43,7 @@ const getAllStudentFromDB = async (req: Request, res: Response) => {
 const getSingleStudentFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
-    const result = await StudentService.getSingleStudentFromDB(studentId);
+    const result = await ProductService.getSingleStudentFromDB(studentId);
 
     res.status(200).json({
       success: true,
@@ -62,7 +62,7 @@ const getSingleStudentFromDB = async (req: Request, res: Response) => {
 const deleteSingleStudentFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
-    const result = await StudentService.deleteSingleStudentFromDB(studentId);
+    const result = await ProductService.deleteSingleStudentFromDB(studentId);
 
     res.status(200).json({
       success: true,
@@ -78,7 +78,7 @@ const deleteSingleStudentFromDB = async (req: Request, res: Response) => {
   }
 };
 
-export const StudentController = {
+export const ProductController = {
   createStudent,
   getAllStudentFromDB,
   getSingleStudentFromDB,

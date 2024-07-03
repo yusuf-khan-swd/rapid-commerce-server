@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
-import { StudentRoutes } from './app/modules/product/product.route';
+import { ProductRoutes } from './app/modules/product/product.route';
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 // Application route
-app.use('/api/v1/student', StudentRoutes);
+app.use('/api/v1/student', ProductRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

@@ -38,7 +38,7 @@ const deleteSingleStudentFromDB = async (id: string) => {
   return result;
 };
 
-export const StudentService = {
+export const ProductService = {
   createStudent,
   getAllStudentFromDB,
   getSingleStudentFromDB,
