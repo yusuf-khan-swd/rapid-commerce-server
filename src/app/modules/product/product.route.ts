@@ -3,9 +3,9 @@ import { ProductController } from './product.controller';
 
 const router = express.Router();
 
-router.post('/create-student', ProductController.createStudent);
-router.get('/', ProductController.getAllStudentFromDB);
-router.get('/:studentId', ProductController.getSingleStudentFromDB);
-router.delete('/:studentId', ProductController.deleteSingleStudentFromDB);
+router.post('/create-student', ProductController.createProduct);
+router.get('/', ProductController.getAllProductFromDB);
+router.get('/:studentId', ProductController.getSingleProductFromDB);
+router.delete('/:studentId', ProductController.deleteSingleProductFromDB);
 
 export const ProductRoutes = router;

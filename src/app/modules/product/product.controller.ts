@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ProductService } from './product.service';
 import studentValidationSchema from './product.validation';
-const createStudent = async (req: Request, res: Response) => {
+const createProduct = async (req: Request, res: Response) => {
   try {
     const { student: studentData } = req.body;
     const zodParseData = studentValidationSchema.parse(studentData);
@@ -22,7 +22,7 @@ const createStudent = async (req: Request, res: Response) => {
   }
 };
 
-const getAllStudentFromDB = async (req: Request, res: Response) => {
+const getAllProductFromDB = async (req: Request, res: Response) => {
   try {
     const result = await ProductService.getAllProductFromDB();
 
@@ -40,7 +40,7 @@ const getAllStudentFromDB = async (req: Request, res: Response) => {
   }
 };
 
-const getSingleStudentFromDB = async (req: Request, res: Response) => {
+const getSingleProductFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
     const result = await ProductService.getSingleProductFromDB(studentId);
@@ -59,7 +59,7 @@ const getSingleStudentFromDB = async (req: Request, res: Response) => {
   }
 };
 
-const deleteSingleStudentFromDB = async (req: Request, res: Response) => {
+const deleteSingleProductFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
     const result = await ProductService.deleteSingleProductFromDB(studentId);
@@ -79,8 +79,8 @@ const deleteSingleStudentFromDB = async (req: Request, res: Response) => {
 };
 
 export const ProductController = {
-  createStudent,
-  getAllStudentFromDB,
-  getSingleStudentFromDB,
-  deleteSingleStudentFromDB,
+  createProduct,
+  getAllProductFromDB,
+  getSingleProductFromDB,
+  deleteSingleProductFromDB,
 };
