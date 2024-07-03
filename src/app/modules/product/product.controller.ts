@@ -42,8 +42,8 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
 
 const getSingleProductFromDB = async (req: Request, res: Response) => {
   try {
-    const { studentId } = req.params;
-    const result = await ProductService.getSingleProductFromDB(studentId);
+    const { id } = req.params;
+    const result = await ProductService.getSingleProductFromDB(id);
 
     res.status(200).json({
       success: true,
@@ -61,8 +61,8 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
 
 const deleteSingleProductFromDB = async (req: Request, res: Response) => {
   try {
-    const { studentId } = req.params;
-    const result = await ProductService.deleteSingleProductFromDB(studentId);
+    const { id } = req.params;
+    const result = await ProductService.deleteSingleProductFromDB(id);
 
     res.status(200).json({
       success: true,
