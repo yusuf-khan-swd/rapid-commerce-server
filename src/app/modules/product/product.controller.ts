@@ -1,16 +1,17 @@
 import { Request, Response } from 'express';
 import { ProductService } from './product.service';
 import productValidationSchema from './product.validation';
+
 const createProduct = async (req: Request, res: Response) => {
   try {
-    const { student: studentData } = req.body;
-    const zodParseData = productValidationSchema.parse(studentData);
+    const { product: productData } = req.body;
+    const zodParseData = productValidationSchema.parse(productData);
 
     const result = await ProductService.createProduct(zodParseData);
 
     res.status(200).json({
       success: true,
-      message: 'Student Create Success',
+      message: 'Product Create Success',
       data: result,
     });
   } catch (error: any) {
@@ -28,7 +29,7 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Get All Student Success',
+      message: 'Get All Product Success',
       data: result,
     });
   } catch (error: any) {
@@ -47,7 +48,7 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Get single Student Success',
+      message: 'Get single Product Success',
       data: result,
     });
   } catch (error: any) {
@@ -66,7 +67,7 @@ const deleteSingleProductFromDB = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Delete single Student Success',
+      message: 'Delete single Product Success',
       data: result,
     });
   } catch (error: any) {
