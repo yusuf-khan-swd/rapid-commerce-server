@@ -1,8 +1,8 @@
 import { TStudent } from './product.interface';
 import { Product } from './product.model';
 
-const createProduct = async (studentData: TStudent) => {
-  const result = await Product.create(studentData);
+const createProduct = async (data: TStudent) => {
+  const result = await Product.create(data);
   return result;
 };
 
