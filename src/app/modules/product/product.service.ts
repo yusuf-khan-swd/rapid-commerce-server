@@ -1,24 +1,24 @@
 import { TStudent } from './product.interface';
-import { Student } from './product.model';
+import { Product } from './product.model';
 
 const createProduct = async (studentData: TStudent) => {
-  const result = await Student.create(studentData);
+  const result = await Product.create(studentData);
   return result;
 };
 
 const getAllProductFromDB = async () => {
-  const result = await Student.find();
+  const result = await Product.find();
   return result;
 };
 
 const getSingleProductFromDB = async (id: string) => {
-  const result = await Student.findById({ _id: id });
+  const result = await Product.findById({ _id: id });
 
   return result;
 };
 
 const deleteSingleProductFromDB = async (id: string) => {
-  const result = await Student.findByIdAndDelete(id);
+  const result = await Product.findByIdAndDelete(id);
   return result;
 };
 
