@@ -8,7 +8,7 @@ const createProduct = async (data: TProduct) => {
 
 const getAllProductFromDB = async (searchTerm: any) => {
   if (searchTerm) {
-    return await Product.find({ name: searchTerm });
+    return await Product.find({ name: { $regex: searchTerm, $options: 'i' } });
   }
 
   const result = await Product.find();
