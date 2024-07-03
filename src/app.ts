@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
+import { OrderRoutes } from './app/modules/order/order.route';
 import { ProductRoutes } from './app/modules/product/product.route';
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors());
 
 // Application route
 app.use('/api/products', ProductRoutes);
+app.use('/api/orders', OrderRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
