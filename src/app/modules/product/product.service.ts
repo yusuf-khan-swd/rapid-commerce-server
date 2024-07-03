@@ -22,19 +22,21 @@ const createProduct = async (studentData: TStudent) => {
 };
 
 const getAllProductFromDB = async () => {
-  const result = await Student.find({ isDeleted: false });
+  const result = await Student.find();
   return result;
 };
 
 const getSingleProductFromDB = async (id: string) => {
   // const result = await Student.findOne({ id });
 
-  const result = await Student.aggregate([{ $match: { id: id } }]);
+  console.log(id);
+
+  const result = await Student.aggregate([{ $match: { _id: id } }]);
   return result;
 };
 
 const deleteSingleProductFromDB = async (id: string) => {
-  const result = await Student.updateOne({ id }, { isDeleted: true });
+  const result = await Student.findByIdAndDelete(id);
   return result;
 };
 
