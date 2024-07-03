@@ -10,7 +10,7 @@ const inventorySchema = z.object({
   inStock: z.boolean(),
 });
 
-const productValidationSchema = z.object({
+const createProductValidationSchema = z.object({
   name: z.string(),
   description: z.string(),
   price: z.number(),
@@ -20,4 +20,4 @@ const productValidationSchema = z.object({
   inventory: inventorySchema,
 });
 
-export const ProductValidation = { productValidationSchema };
+export const ProductValidation = { createProductValidationSchema };

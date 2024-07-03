@@ -6,7 +6,7 @@ const createProduct = async (req: Request, res: Response) => {
   try {
     const productData = req.body;
     const zodParseData =
-      ProductValidation.productValidationSchema.parse(productData);
+      ProductValidation.createProductValidationSchema.parse(productData);
 
     const result = await ProductService.createProduct(zodParseData);
 
