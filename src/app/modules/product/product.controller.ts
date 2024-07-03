@@ -6,7 +6,7 @@ const createStudent = async (req: Request, res: Response) => {
     const { student: studentData } = req.body;
     const zodParseData = studentValidationSchema.parse(studentData);
 
-    const result = await ProductService.createStudent(zodParseData);
+    const result = await ProductService.createProduct(zodParseData);
 
     res.status(200).json({
       success: true,
@@ -24,7 +24,7 @@ const createStudent = async (req: Request, res: Response) => {
 
 const getAllStudentFromDB = async (req: Request, res: Response) => {
   try {
-    const result = await ProductService.getAllStudentFromDB();
+    const result = await ProductService.getAllProductFromDB();
 
     res.status(200).json({
       success: true,
@@ -43,7 +43,7 @@ const getAllStudentFromDB = async (req: Request, res: Response) => {
 const getSingleStudentFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
-    const result = await ProductService.getSingleStudentFromDB(studentId);
+    const result = await ProductService.getSingleProductFromDB(studentId);
 
     res.status(200).json({
       success: true,
@@ -62,7 +62,7 @@ const getSingleStudentFromDB = async (req: Request, res: Response) => {
 const deleteSingleStudentFromDB = async (req: Request, res: Response) => {
   try {
     const { studentId } = req.params;
-    const result = await ProductService.deleteSingleStudentFromDB(studentId);
+    const result = await ProductService.deleteSingleProductFromDB(studentId);
 
     res.status(200).json({
       success: true,

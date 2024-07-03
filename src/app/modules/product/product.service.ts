@@ -1,7 +1,7 @@
 import { TStudent } from './product.interface';
 import { Student } from './product.model';
 
-const createStudent = async (studentData: TStudent) => {
+const createProduct = async (studentData: TStudent) => {
   const isUserExist = await Student.isUserExist(studentData?.id);
 
   if (isUserExist) {
@@ -21,26 +21,26 @@ const createStudent = async (studentData: TStudent) => {
   // return result;
 };
 
-const getAllStudentFromDB = async () => {
+const getAllProductFromDB = async () => {
   const result = await Student.find({ isDeleted: false });
   return result;
 };
 
-const getSingleStudentFromDB = async (id: string) => {
+const getSingleProductFromDB = async (id: string) => {
   // const result = await Student.findOne({ id });
 
   const result = await Student.aggregate([{ $match: { id: id } }]);
   return result;
 };
 
-const deleteSingleStudentFromDB = async (id: string) => {
+const deleteSingleProductFromDB = async (id: string) => {
   const result = await Student.updateOne({ id }, { isDeleted: true });
   return result;
 };
 
 export const ProductService = {
-  createStudent,
-  getAllStudentFromDB,
-  getSingleStudentFromDB,
-  deleteSingleStudentFromDB,
+  createProduct,
+  getAllProductFromDB,
+  getSingleProductFromDB,
+  deleteSingleProductFromDB,
 };
