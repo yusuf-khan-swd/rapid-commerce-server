@@ -6,7 +6,7 @@ const createOrder = async (req: Request, res: Response) => {
   try {
     const productData = req.body;
     const zodParseData =
-      OrderValidation.createProductValidationSchema.parse(productData);
+      OrderValidation.createOrderValidationSchema.parse(productData);
 
     const result = await OrderService.createOrder(zodParseData);
 
@@ -86,7 +86,7 @@ const updateOrder = async (req: Request, res: Response) => {
     const { productId } = req.params;
     const productData = req.body;
 
-    OrderValidation.updateProductValidationSchema.parse(productData);
+    OrderValidation.updateOrderValidationSchema.parse(productData);
 
     const result = await OrderService.updateOrder(productId, productData);
 

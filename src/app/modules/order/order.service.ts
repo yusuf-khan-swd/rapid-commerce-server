@@ -1,7 +1,7 @@
-import { TProduct } from './order.interface';
+import { TOrder } from './order.interface';
 import { Order } from './order.model';
 
-const createOrder = async (data: TProduct) => {
+const createOrder = async (data: TOrder) => {
   const result = await Order.create(data);
   return result;
 };
@@ -21,7 +21,7 @@ const getSingleOrderFromDB = async (id: string) => {
   return result;
 };
 
-const updateOrder = async (id: string, data: TProduct) => {
+const updateOrder = async (id: string, data: TOrder) => {
   const result = await Order.findByIdAndUpdate(id, data, { new: true });
   return result;
 };
