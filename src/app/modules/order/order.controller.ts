@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
-import { ProductService } from './order.service';
-import { ProductValidation } from './order.validation';
+import { OrderService } from './order.service';
+import { OrderValidation } from './order.validation';
 
 const createProduct = async (req: Request, res: Response) => {
   try {
     const productData = req.body;
     const zodParseData =
-      ProductValidation.createProductValidationSchema.parse(productData);
+      OrderValidation.createProductValidationSchema.parse(productData);
 
-    const result = await ProductService.createProduct(zodParseData);
+    const result = await OrderService.createProduct(zodParseData);
 
     res.status(200).json({
       success: true,
@@ -27,7 +27,7 @@ const createProduct = async (req: Request, res: Response) => {
 const getAllProductFromDB = async (req: Request, res: Response) => {
   try {
     const { searchTerm } = req.query;
-    const result = await ProductService.getAllProductFromDB(searchTerm);
+    const result = await OrderService.getAllProductFromDB(searchTerm);
 
     res.status(200).json({
       success: true,
@@ -46,7 +46,7 @@ const getAllProductFromDB = async (req: Request, res: Response) => {
 const getSingleProductFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    const result = await ProductService.getSingleProductFromDB(productId);
+    const result = await OrderService.getSingleProductFromDB(productId);
 
     res.status(200).json({
       success: true,
@@ -65,7 +65,7 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
 const deleteSingleProductFromDB = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    await ProductService.deleteSingleProductFromDB(productId);
+    await OrderService.deleteSingleProductFromDB(productId);
 
     res.status(200).json({
       success: true,
@@ -86,9 +86,9 @@ const updateProduct = async (req: Request, res: Response) => {
     const { productId } = req.params;
     const productData = req.body;
 
-    ProductValidation.updateProductValidationSchema.parse(productData);
+    OrderValidation.updateProductValidationSchema.parse(productData);
 
-    const result = await ProductService.updateProduct(productId, productData);
+    const result = await OrderService.updateProduct(productId, productData);
 
     res.status(200).json({
       success: true,
@@ -104,7 +104,7 @@ const updateProduct = async (req: Request, res: Response) => {
   }
 };
 
-export const ProductController = {
+export const OrderController = {
   createProduct,
   getAllProductFromDB,
   getSingleProductFromDB,

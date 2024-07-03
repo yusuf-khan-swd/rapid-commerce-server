@@ -31,7 +31,7 @@ const deleteSingleProductFromDB = async (id: string) => {
   return result;
 };
 
-export const ProductService = {
+export const OrderService = {
   createProduct,
   getAllProductFromDB,
   getSingleProductFromDB,

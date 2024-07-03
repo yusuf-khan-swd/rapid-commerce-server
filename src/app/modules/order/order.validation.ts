@@ -30,7 +30,7 @@ const updateProductValidationSchema = z.object({
   inventory: inventorySchema.optional(),
 });
 
-export const ProductValidation = {
+export const OrderValidation = {
   createProductValidationSchema,
   updateProductValidationSchema,
 };
