@@ -4,7 +4,7 @@ This is an e-commerce product management backend server built with Express.js, M
 
 ## `Useful Links`
 
-**1. [Github Server Side Repository](https://github.com/yusuf-khan-swd/renovator-backend)** \
+**1. [Github Server Side Repository](https://github.com/yusuf-khan-swd/rapid-commerce-server)** \
 **2. [Live Server](https://rapidcommerce.vercel.app)**
 
 ## How to Setup Project Locally
