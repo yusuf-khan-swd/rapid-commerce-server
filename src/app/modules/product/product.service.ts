@@ -22,7 +22,7 @@ const getSingleProductFromDB = async (id: string) => {
 };
 
 const updateProduct = async (id: string, data: TProduct) => {
-  const result = await Product.findByIdAndUpdate(id, data, { new: true });
+  const result = await Product.findByIdAndUpdate(id, data);
   return result;
 };
 
