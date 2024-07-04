@@ -12,8 +12,8 @@ This is an e-commerce product management backend server built with Express.js, M
 1. **First step** => Clone the project
 
    ```sh
-   git clone https://github.com/your-username/ecommerce-product-management-server.git
-   cd ecommerce-product-management-server
+   git clone https://github.com/yusuf-khan-swd/rapid-commerce-server.git
+   cd rapid-commerce-server
    ```
 
 2. **Second step** => Install all the packages using
