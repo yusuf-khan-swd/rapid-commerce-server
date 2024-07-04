@@ -8,13 +8,20 @@ const createOrder = async (req: Request, res: Response) => {
     const zodParseData =
       OrderValidation.createOrderValidationSchema.parse(orderData);
 
-    const result = await OrderService.createOrder(zodParseData);
+    const result: any = await OrderService.createOrder(zodParseData);
 
-    res.status(200).json({
-      success: true,
-      message: 'Order Create Success',
-      data: result,
-    });
+    if (result?.message) {
+      res.status(500).json({
+        success: false,
+        message: result?.message,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: 'Order Create Success',
+        data: result,
+      });
+    }
   } catch (error: any) {
     res.status(500).json({
       success: false,
