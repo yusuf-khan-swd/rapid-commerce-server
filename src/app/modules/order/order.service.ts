@@ -15,13 +15,17 @@ const createOrder = async (data: TOrder) => {
   if (calculateQuantity < 0)
     throw new Error('Insufficient quantity available in inventory');
 
-  // const updatedQuantityProductData = await Product.findByIdAndUpdate(
-  //   productId,
-  //   { 'inventory.quantity': calculateQuantity },
-  //   { new: true },
-  // );
+  if (calculateQuantity === 0) {
+    await Product.findByIdAndUpdate(productId, { 'inventory.inStock': false });
+  }
 
-  // return updatedQuantityProductData;
+  const updatedQuantityProductData = await Product.findByIdAndUpdate(
+    productId,
+    { 'inventory.quantity': calculateQuantity },
+    { new: true },
+  );
+
+  return updatedQuantityProductData;
 
   // const result = await Order.create(data);
   // return result;
