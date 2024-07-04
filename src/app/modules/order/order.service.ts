@@ -15,26 +15,7 @@ const getAllOrderFromDB = async (email: any) => {
   return result;
 };
 
-const getSingleOrderFromDB = async (id: string) => {
-  const result = await Order.findById({ _id: id });
-
-  return result;
-};
-
-const updateOrder = async (id: string, data: TOrder) => {
-  const result = await Order.findByIdAndUpdate(id, data, { new: true });
-  return result;
-};
-
-const deleteSingleOrderFromDB = async (id: string) => {
-  const result = await Order.findByIdAndDelete(id);
-  return result;
-};
-
 export const OrderService = {
   createOrder,
   getAllOrderFromDB,
-  getSingleOrderFromDB,
-  updateOrder,
-  deleteSingleOrderFromDB,
 };
