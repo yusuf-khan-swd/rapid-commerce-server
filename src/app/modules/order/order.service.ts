@@ -6,15 +6,15 @@ const createOrder = async (data: TOrder) => {
   const { productId, quantity } = data;
   const productData = await Product.findById(productId);
 
-  if (!productData) throw new Error('Order not found');
+  if (!productData) return { message: 'Order not found' };
 
   if (!productData.inventory.inStock)
-    throw new Error('Product is out of Stock');
+    return { message: 'Product is out of Stock' };
 
   const calculateQuantity = productData.inventory.quantity - quantity;
 
   if (calculateQuantity < 0)
-    throw new Error('Insufficient quantity available in inventory');
+    return { message: 'Insufficient quantity available in inventory' };
 
   if (calculateQuantity === 0) {
     await Product.findByIdAndUpdate(productId, { 'inventory.inStock': false });
