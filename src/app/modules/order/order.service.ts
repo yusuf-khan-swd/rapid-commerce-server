@@ -4,10 +4,13 @@ import { Order } from './order.model';
 
 const createOrder = async (data: TOrder) => {
   console.log(data);
-  const { productId } = data;
+  const { productId, quantity } = data;
   const productData = await Product.findById(productId);
 
   if (!productData) throw new Error('Order not found');
+
+  const calculateQuantity = productData.inventory.quantity - quantity;
+  console.log({ calculateQuantity });
 
   return productData;
   // const result = await Order.create(data);
