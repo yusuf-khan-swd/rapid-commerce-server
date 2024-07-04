@@ -8,9 +8,6 @@ const createOrder = async (data: TOrder) => {
 
   if (!productData) return { message: 'Order not found' };
 
-  if (!productData.inventory.inStock)
-    return { message: 'Product is out of Stock' };
-
   const calculateQuantity = productData.inventory.quantity - quantity;
 
   if (calculateQuantity < 0)
