@@ -12,7 +12,13 @@ const createOrder = async (data: TOrder) => {
   const calculateQuantity = productData.inventory.quantity - quantity;
   console.log({ calculateQuantity });
 
-  return productData;
+  const updatedQuantityProductData = await Product.findByIdAndUpdate(
+    productId,
+    { 'inventory.quantity': calculateQuantity },
+    { new: true },
+  );
+
+  return updatedQuantityProductData;
   // const result = await Order.create(data);
   // return result;
 };
