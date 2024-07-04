@@ -3,7 +3,6 @@ import { TOrder } from './order.interface';
 import { Order } from './order.model';
 
 const createOrder = async (data: TOrder) => {
-  console.log(data);
   const { productId, quantity } = data;
   const productData = await Product.findById(productId);
 
@@ -13,7 +12,6 @@ const createOrder = async (data: TOrder) => {
     throw new Error('Product is out of Stock');
 
   const calculateQuantity = productData.inventory.quantity - quantity;
-  console.log({ calculateQuantity });
 
   if (calculateQuantity < 0)
     throw new Error('Insufficient quantity available in inventory');
