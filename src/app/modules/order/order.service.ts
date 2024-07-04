@@ -20,16 +20,12 @@ const createOrder = async (data: TOrder) => {
     await Product.findByIdAndUpdate(productId, { 'inventory.inStock': false });
   }
 
-  const updatedQuantityProductData = await Product.findByIdAndUpdate(
-    productId,
-    { 'inventory.quantity': calculateQuantity },
-    { new: true },
-  );
+  await Product.findByIdAndUpdate(productId, {
+    'inventory.quantity': calculateQuantity,
+  });
 
-  return updatedQuantityProductData;
-
-  // const result = await Order.create(data);
-  // return result;
+  const result = await Order.create(data);
+  return result;
 };
 
 const getAllOrderFromDB = async (email: any) => {
