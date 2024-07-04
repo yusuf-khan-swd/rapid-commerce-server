@@ -12,7 +12,7 @@ const createProduct = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Product Create Success',
+      message: 'Product created successfully!',
       data: result,
     });
   } catch (error: any) {
