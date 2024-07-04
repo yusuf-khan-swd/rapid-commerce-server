@@ -9,6 +9,9 @@ const createOrder = async (data: TOrder) => {
 
   if (!productData) throw new Error('Order not found');
 
+  if (!productData.inventory.inStock)
+    throw new Error('Product is out of Stock');
+
   const calculateQuantity = productData.inventory.quantity - quantity;
   console.log({ calculateQuantity });
 
