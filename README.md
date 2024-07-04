@@ -1,14 +1,38 @@
+# RapidCommerce Product Management Server
+
+This is an e-commerce product management backend server built with Express.js, Mongoose, and Zod for validation.
+
 ## `Useful Links`
 
 **1. [Github Server Side Repository](https://github.com/yusuf-khan-swd/renovator-backend)** \
 **2. [Live Server](https://rapidcommerce.vercel.app)**
 
-## How to Setup project locally
+## How to Setup Project Locally
 
-1. First step, Clone the project
-2. Second step, install all the packages using `npm i`
-3. Third step, Add environment variable according to config file in to your `.env` file
-4. Fourth and final step run your code by using `npm run dev`
+1. **First step** => Clone the project
+
+   ```sh
+   git clone https://github.com/your-username/ecommerce-product-management-server.git
+   cd ecommerce-product-management-server
+   ```
+
+2. **Second step** => Install all the packages using
+
+   ```sh
+   npm install
+   ```
+
+3. **Third step** => Add environment variables according to the config file into your `.env` file
+
+   ```env
+   DB_URL=your_mongodb_connection_string
+   ```
+
+4. **Fourth and final step** => Run your code by using
+
+   ```sh
+   npm run dev
+   ```
 
 ### Application Routes:
 
